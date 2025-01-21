@@ -1,0 +1,29 @@
+<!-- Document Type -->
+<!DOCTYPE html>
+<!-- HTML TAG -->
+<html>
+    <!-- HEAD TAG -->
+    <head>
+        <!--TITLE TAG (for title on browser tab)-->
+        <title>FORM ELEMENTS</title>
+    </head>
+
+    <!-- BODY TAG -->
+    <body>
+        <!-- FORM TAG-->
+        <form>
+            <!-- INPUT TAGS with different types-->
+            <input type="number" min="1" max="10" id="send" oninput="result.value=send.value"/>
+            <input type="text" id="result"/>
+            <!-- LINE BREAK TAG -->
+            <br/>
+            <input type="date"/>
+            <br/>
+            <input type="time"/>
+            <br/>
+            <input name="b" type="range" min="0" max="10" oninput="a.value=b.value"/>
+            <!-- OUTPUT TAG | value based on the previous input tag -->
+            <output name="a">0</output>
+        </form>
+    </body>
+</html>
