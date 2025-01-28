@@ -1,0 +1,36 @@
+<!-- DOCUMENT TYPE TAG -->
+<!DOCTYPE html>
+<!-- HTML TAG -->
+<html>
+    <!-- HEAD TAG -->
+    <head>
+        <!-- TITLE TAG -->
+        <title>Use of AJAX</title>
+    </head>
+
+    <!-- BODY TAG  -->
+    <body>
+        <h2>The XMLHttpRequest Object</h2>
+        <p id="demo">Let AJAX change this text</p>
+
+        <!-- BUTTON TAG -->
+        <button type="button" onclick="loadDoc()">AJAX</button>
+
+        <!-- JAVASCRIPT TAG -->
+        <script>
+            function loadDoc()
+            {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() 
+                {
+                    if (this.readyState == 4 && this.status == 200)
+                    {
+                        document.getElementById("demo").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "ajax_info.txt", true);
+                xhttp.send();
+            }
+        </script>
+    </body>
+</html>

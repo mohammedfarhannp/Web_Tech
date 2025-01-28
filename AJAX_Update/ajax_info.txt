@@ -1,0 +1,4 @@
+Hello, This is updated text using AJAX <br/>
+AJAX is super cool <br/>
+maybe not so cool <br/>
+
