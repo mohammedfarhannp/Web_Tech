@@ -1,0 +1,121 @@
+<!-- DOCUMENT TYPE TAG -->
+<!DOCTYPE html>
+
+<!-- HTML TAG -->
+<html>
+    <!-- HEAD TAG -->
+    <head>
+        <!-- TITLE TAG -->
+        <title>Validate</title>
+
+        <!-- JAVASCRIPT TAG -->
+        <script>
+            function validate()
+            {
+                var name = document.forms["RegForm"]["Name"];
+                var email = document.forms["RegForm"]["EMail"];
+                var phone = document.forms["RegForm"]["mobno"];
+                var what = document.forms["RegForm"]["Subject"];
+                var password = document.forms["RegForm"]["Password"];
+                var address = document.forms["RegForm"]["Address"];
+
+
+                var atposition = email.value.indexOf("@");
+                var dotposition = email.value.lastIndexOf(".");
+
+                if(name.value == "")
+                {
+                    alert("Please Enter your Name");
+                    name.focus();
+                    return false;
+                } else if(name.value.length < 6) {
+                    alert("Name must be atleast 6 characters long");
+                    name.focus();
+                    return false;
+                }
+
+
+                if(password.value == "")
+                {
+                    alert("Please Enter your Password");
+                    password.focus();
+                    return false;
+                } else if(password.value.length < 6)
+                {
+                    alert("Password must be at least 6 characters long");
+                    password.focus();
+                    return false;
+                }
+
+
+                if(atposition < 1 || dotposition < atposition+2 || dotposition+2 >= email.length)
+                {
+                    alert("Please Enter a valid email!");
+                    email.focus();
+                    return false;
+                }
+
+
+                if(phone.value == "")
+                {
+                    alert("Please Enter your phone number");
+                    phone.focus();
+                    return false; 
+                } else if(phone.value.length != 10)
+                {
+                    alert("Phone Number should contains 10 digits only");
+                    phone.focus();
+                    return false;
+                }
+
+
+                if(address.value == "")
+                {
+                    alert("Please Enter your address");
+                    address.focus();
+                    return false;
+                }
+                alert("Successfully Entered");
+                return true;
+            }
+        </script>
+
+    </head>
+
+    <!-- BODY TAG -->
+    <body style="background-color:black;color:white;">
+        <!-- HEADING TAG -->
+        <h1 style="text-align: center;">REGISTRATION FORM</h1>
+
+        <!-- FORM TAG -->
+        <form name="RegForm" action="" onsubmit="return validate()" method="post" style="text-align:center;">
+            <!-- NAME FIELD WITH LABEL -->
+            <tr><td> <p>Name: </td><td><input type="text" size="65" name="Name"/></p></tr></td>
+            <br/>
+
+            <!-- PASSWORD FIELD WITH LABEL -->
+            <tr><td> <p>Password: </td><td><input type="password" size="65" name="Password"/></p></tr></td>
+            <br/>
+
+            <!-- EMAIL FIELD WITH LABEL -->
+            <tr><td> <p>Email: </td><td><input type="text" size="65" name="EMail"/></p></tr></td>
+            <br/>
+
+            <!-- MOBILE NUMBER FIELD WITH LABEL -->
+            <tr><td> <p>Phone Number: </td><td><input type="number" size="65" name="mobno"/></p></tr></td>
+            <br/>
+
+            <!-- ADDRESS FIELD WITH LABEL -->
+            <tr><td> <p>Address: </td><td><input type="text" size="65"/></p></tr></td>
+            <br/>
+
+            <!-- SUBMIT BUTTON -->
+            <tr><td></td><td><input type="submit" value="Submit" name="Submit"/></td></tr>
+
+            <!-- RESET BUTTON -->
+            <tr><td></td><td><input type="reset" value="Reset" name="Reset"/></td><tr>
+            <br />
+        </form>
+
+    </body>
+</html>
