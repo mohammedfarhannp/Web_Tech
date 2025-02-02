@@ -1,0 +1,39 @@
+<!-- DOCUMENT TYPE TAG  -->
+<!DOCTYPE html>
+
+<!-- HTML TAG -->
+<html>
+    <!-- HEAD TAG -->
+    <head>
+        <!-- TITLE TAG -->
+        <title>playing with JSON</title>
+    </head>
+
+    <!-- BODY TAG -->
+    <body>
+        <!-- HEADING 2 Type TAG-->
+        <h2>Store and retrieve data from local storage</h2>
+
+        <!-- PARAGRAPH TAGS -->
+        <p id="id-1"></p>
+        <p id="id-2"></p>
+        <p id="id-3"></p>
+
+        <!-- JavaScript TAG -->
+        <script>
+            var myObj, myJSON, text, obj;
+            // Storing Data
+            myObj = {name:"King", age:33, city:"Digiverse"};
+            myJSON = JSON.stringify(myObj);
+            localStorage.setItem("store_json", myJSON);
+
+            // Retriving Data
+            text = localStorage.getItem("store_json");
+            obj = JSON.parse(text);
+
+            document.getElementById("id-1").innerHTML = obj.name;
+            document.getElementById("id-2").innerHTML = obj.age;
+            document.getElementById("id-3").innerHTML = obj.city;
+        </script>
+    </body>
+</html>
