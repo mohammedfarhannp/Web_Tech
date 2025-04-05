@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Input Validation</title>
+        <script>
+            function validate() {
+                var name = document.forms["RegForm"]["Name"];
+                var email = document.forms["RegForm"]["EMail"];
+                var phone = document.forms["RegForm"]["mobno"];
+                var password = document.forms["RegForm"]["Password"];
+                var address = document.forms["RegForm"]["Address"];
+
+                var atposition = email.value.indexOf("@");
+                var dotposition = email.value.lastIndexOf(".");
+
+                if (name.value == "" || name.value.length < 6) {
+
+                    name.focus()
+                    alert("Invalid Name!")
+                    return false;
+
+                } else if (password.value == "" || password.value.length < 8) {
+
+                    password.focus();
+                    alert("Invalid Password!");
+                    return false;
+
+                } else if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.value.length) {
+
+                    email.focus();
+                    alert("Invalid Email!");
+                    return false;
+
+                } else if (phone.value == "" || phone.value.length != 10) {
+
+                    phone.focus();
+                    alert("Invalid Phone Number!");
+                    return false;
+
+                } else if (address.value == "") {
+
+                    address.focus();
+                    alert("Invalid Address!");
+                    return false;
+
+                } else {
+
+                    alert("Successfully Entered!");
+                    return true;
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>Registration Form</h1>
+
+        <form name="RegForm" action="" onsubmit="return validate()" method="post">
+            <p>Name: <input type="text" name="Name"></p>
+            <br />
+
+            <p>Password: <input type="password" name="Password"></p>
+            <br />
+
+            <p>Email: <input type="email" name="EMail"></p>
+            <br />
+
+            <p>Phone Number: <input type="number" name="mobno"></p>
+            <br />
+
+            <p>Address: <input type="text" name="Address"></p>
+            <br />
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </body>
+</html>
